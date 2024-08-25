@@ -20,8 +20,6 @@ const initApp = (app, express) => {
 
     app.use('/auth', authRouter);
 
-    app.use('/messages',messageRouter);
-
     app.use('*', (req, res) => {
         return res.status(404).json({ message: "Page not found" });
     });

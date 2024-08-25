@@ -11,7 +11,7 @@
 
 import connectDB from './DB/connection.js';
 import authRouter from './src/modules/auth/auth.router.js'; // Corrected the import statement
-import messageRouter from './src/modules/messages/message.router.js';
+
 const initApp = (app, express) => {
 
     connectDB();
@@ -19,8 +19,6 @@ const initApp = (app, express) => {
     app.use(express.json());
 
     app.use('/auth', authRouter);
-
-    app.use('/messages',messageRouter);
 
     app.use('*', (req, res) => {
         return res.status(404).json({ message: "Page not found" });
